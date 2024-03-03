@@ -1,5 +1,6 @@
 using dotnet_webapp.Data;
 using dotnet_webapp.Models;
+using dotNet_WebApp.Dto;
 using dotNet_WebApp.Interfaces;
 
 namespace dotNet_WebApp.Repository
@@ -10,6 +11,32 @@ namespace dotNet_WebApp.Repository
         public PokemonRepository(DataContext context)
         {
             _context = context;
+        }
+
+        public bool CreatePokemon(int ownerId, int categoryId, Pokemon pokemon)
+        {
+            var pokemonOwnerEntity = _context.Owners.Where(a => a.id == ownerId).FirstOrDefault();
+            var category = _context.Categories.Where(a => a.id == categoryId).FirstOrDefault();
+
+            var pokemonOwner = new PokemonOwner()
+            {
+                Owner = pokemonOwnerEntity,
+                Pokemon = pokemon,
+            };
+
+            _context.Add(pokemonOwner);
+
+            var pokemonCategory = new PokemonCategory()
+            {
+                Category = category,
+                Pokemon = pokemon,
+            };
+
+            _context.Add(pokemonCategory);
+
+            _context.Add(pokemon);
+
+            return Save();
         }
 
         public Pokemon GetPokemon(int id)
@@ -37,9 +64,21 @@ namespace dotNet_WebApp.Repository
             return _context.Pokemon.OrderBy(p => p.id).ToList<Pokemon>();
         }
 
+        public Pokemon GetPokemonTrimToUpper(PokemonDto pokemonCreate)
+        {
+            return GetPokemons().Where(c => c.Name.Trim().ToUpper() == pokemonCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
+        }
+
         public bool PokemonExists(int pokeId)
         {
             return _context.Pokemon.Any(p => p.id == pokeId);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
     }
 }
