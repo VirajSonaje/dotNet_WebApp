@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "i9tWUA2WVifv86aKCgv9mk/yjEeYacCf/CsaIqvxX2OUhQnkidKWGeBU6Vy6STGXf7CGlKMAthHzjdwqxw3lPA==",
+  "dgSpecHash": "0DxDy/m+Jl3cwoX8de9AOdDBRZonovMvB98OQz7NpaPkoWzr0JCyOA/oQZ1leZn/49xOzsfDDsyphvTlthutqA==",
   "success": true,
   "projectFilePath": "/Users/virajsonaje/Documents/Projects/dotNet_WebApp/dotNet_WebApp.csproj",
   "expectedPackageFiles": [
+    "/Users/virajsonaje/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/virajsonaje/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/virajsonaje/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/Users/virajsonaje/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
