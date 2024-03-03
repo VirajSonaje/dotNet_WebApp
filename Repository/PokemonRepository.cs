@@ -6,7 +6,7 @@ namespace dotNet_WebApp.Repository
 {
     public class PokemonRepository : IPokemonRepository
     {
-        public readonly DataContext _context;
+        private readonly DataContext _context;
         public PokemonRepository(DataContext context)
         {
             _context = context;
