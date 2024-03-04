@@ -10,6 +10,7 @@ namespace dotNet_WebApp.Interfaces
         bool ReviewerExists(int reviewerId);
         bool CreateReviewer(Reviewer reviewer);
         bool UpdateReviewer(Reviewer reviewer);
+        bool DeleteReviewer(Reviewer reviewer);
         bool Save();
     }
 }
