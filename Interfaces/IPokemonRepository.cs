@@ -1,4 +1,4 @@
-using dotnet_webapp.Models;
+using dotNet_WebApp.Models;
 using dotNet_WebApp.Dto;
 
 namespace dotNet_WebApp.Interfaces

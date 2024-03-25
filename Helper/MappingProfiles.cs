@@ -1,8 +1,8 @@
 using AutoMapper;
-using dotnet_webapp.Models;
+using dotNet_WebApp.Models;
 using dotNet_WebApp.Dto;
 
-namespace dotnet_webapp.Helper
+namespace dotNet_WebApp.Helper
 {
     public class MappingProfiles : Profile
     {

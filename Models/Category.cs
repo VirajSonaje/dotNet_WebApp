@@ -1,4 +1,4 @@
-namespace dotnet_webapp.Models
+namespace dotNet_WebApp.Models
 {
     public class Category
     {

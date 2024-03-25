@@ -1,7 +1,7 @@
-using dotnet_webapp.Data;
-using dotnet_webapp.Models;
+using dotNet_WebApp.Data;
+using dotNet_WebApp.Models;
 
-namespace dotnet_webapp
+namespace dotNet_WebApp
 {
     public class Seed
     {

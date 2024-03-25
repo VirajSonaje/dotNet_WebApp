@@ -1,5 +1,5 @@
 using AutoMapper;
-using dotnet_webapp.Models;
+using dotNet_WebApp.Models;
 using dotNet_WebApp.Dto;
 using dotNet_WebApp.Interfaces;
 using Microsoft.AspNetCore.Mvc;

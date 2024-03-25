@@ -1,10 +1,12 @@
-using dotnet_webapp.Models;
+using dotNet_WebApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace dotnet_webapp.Data
+namespace dotNet_WebApp.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<AppUser>
     {
         // protected readonly IConfiguration config;
         public DataContext(DbContextOptions<DataContext> options) : base(options)
@@ -23,6 +25,8 @@ namespace dotnet_webapp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
             modelBuilder.Entity<PokemonCategory>().HasKey(pc => new {pc.PokemonId, pc.CategoryId});
             modelBuilder.Entity<PokemonCategory>().HasOne(p => p.Pokemon).WithMany(pc => pc.pokemonCategories)
             .HasForeignKey(c => c.PokemonId);            
@@ -34,7 +38,22 @@ namespace dotnet_webapp.Data
             modelBuilder.Entity<PokemonOwner>().HasOne(p => p.Pokemon).WithMany(po => po.pokemonOwners)
             .HasForeignKey(c => c.PokemonId);            
             modelBuilder.Entity<PokemonOwner>().HasOne(p => p.Owner).WithMany(po => po.pokemonOwners)
-            .HasForeignKey(c => c.OwnerId);   
+            .HasForeignKey(c => c.OwnerId); 
+
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+                new IdentityRole
+                {
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Name = "User",
+                    NormalizedName = "USER"
+                },
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);  
         }
     }
 }

@@ -1,7 +1,8 @@
 using AutoMapper;
-using dotnet_webapp.Models;
+using dotNet_WebApp.Models;
 using dotNet_WebApp.Dto;
 using dotNet_WebApp.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotNet_WebApp.Controllers
@@ -24,6 +25,7 @@ namespace dotNet_WebApp.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Owner>))]
         public IActionResult GetOwners()
         {
@@ -71,6 +73,7 @@ namespace dotNet_WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateOwner([FromQuery] int countryId, [FromBody] OwnerDto ownerCreate)

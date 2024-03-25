@@ -1,5 +1,5 @@
-using dotnet_webapp.Data;
-using dotnet_webapp.Models;
+using dotNet_WebApp.Data;
+using dotNet_WebApp.Models;
 using dotNet_WebApp.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
